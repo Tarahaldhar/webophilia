@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------------------
 * Author        : Awaiken
-* Template Name : Weebix - IT Service And Technology HTML Template
+* Template Name : Restaurant Website Design Solution
 * File          : CSS File
 * Version       : 1.0
 * ---------------------------------------------------------------------------------------- */
@@ -37,10 +37,10 @@
 
 :root{
 	--primary-color		: #15161B;
-	--secondary-color	: #F7F8FD;
+	--secondary-color	: #Ffffff;
 	--text-color		: #9C9FA6;
-	--accent-color		: #5D56F1;
-	--white-color		: #FFFFFF;
+	--accent-color		: #F15541;
+	--white-color		: #FFF7EC;
 	--divider-color		: #E1E4EB;
 	--error-color		: rgb(230, 87, 87);
 	--default-font		: "Manrope", sans-serif;
