@@ -57,6 +57,36 @@ body{
 	color: var(--text-color);
 	background: var(--white-color);
 }
+#whatsapp-float {
+  position: fixed;
+  bottom: 5%;             /* vertical center */
+  right: 20px;          /* distance from right edge */
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+#whatsapp-float a {
+  width: 60px;          /* bigger circle */
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+#whatsapp-float a:hover {
+  background-color: #128C3E;
+}
+
+#whatsapp-float img {
+  width: 32px;          /* larger icon inside */
+  height: 32px;
+}
+
+
  .why-choose-us-item i {
     transition: transform 0.3s ease;
   }
