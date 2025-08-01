@@ -57,6 +57,15 @@
     </div>
     <!-- Magic Cursor End -->
 
+    <!-- Marquee Notification Bar -->
+    <div id="marquee-notification" style="background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35); color: white; padding: 8px 0; position: relative; z-index: 1000; box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3); animation: subtleGlow 3s ease-in-out infinite;">
+      <div class="container">
+        <marquee scrollamount="4" style="font-weight: 600; font-size: 14px; cursor: pointer;">
+          🔥 गणेश चतुर्थी स्पेशल ऑफर! 70% तक की छूट! 🔥 LIMITED TIME OFFER - BOOK NOW! 🔥 गणेश चतुर्थी स्पेशल ऑफर! 70% तक की छूट! 🔥
+        </marquee>
+      </div>
+    </div>
+
     <!-- Header Start -->
     <header class="main-header">
       <div class="header-sticky">
@@ -791,6 +800,9 @@
                 <figure class="image-anime">
                   <img src="images/portfolio-1.png" alt="" />
                 </figure>
+                <div class="portfolio-hover-btn">
+                  <a href="https://navyug.progresswithai.com/" target="_blank" class="btn-view-project">View Project</a>
+                </div>
               </div>
               <div class="works-content">
                 <h2>Navyug Restaurant</h2>
@@ -812,6 +824,9 @@
                 <figure class="image-anime">
                   <img src="images/portfolio-2.png" alt="" />
                 </figure>
+                <div class="portfolio-hover-btn">
+                  <a href="https://aaoji-khaoji.progresswithai.com/" target="_blank" class="btn-view-project">View Project</a>
+                </div>
               </div>
               <div class="works-content">
                 <h2>Aaoji Khhaoji</h2>
@@ -834,6 +849,9 @@
                 <figure class="image-anime">
                   <img src="images/portfolio-3.png" alt="" />
                 </figure>
+                <div class="portfolio-hover-btn">
+                  <a href="https://cafeflyinggypsy.progresswithai.com/" target="_blank" class="btn-view-project">View Project</a>
+                </div>
               </div>
               <div class="works-content">
                 <h2>Cafe Flying Gypsy</h2>
@@ -1098,14 +1116,107 @@
   </div>
 </div>
 
+<!-- CSS for Marquee Animation -->
+<style>
+  @keyframes subtleGlow {
+    0%, 100% { box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3); }
+    50% { box-shadow: 0 4px 20px rgba(255, 107, 53, 0.5); }
+  }
+  
+  #marquee-notification {
+    transition: all 0.3s ease;
+  }
+  
+  #marquee-notification:hover {
+    background: linear-gradient(90deg, #e55a2b, #e68a1a, #e55a2b) !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.5) !important;
+    animation: none;
+  }
+  
+  #marquee-notification marquee {
+    transition: all 0.3s ease;
+  }
+  
+  #marquee-notification:hover marquee {
+    font-weight: 700 !important;
+  }
+  
+  /* Popup Animation */
+  @keyframes popupFadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.7) translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  #popup-content {
+    animation: popupFadeIn 0.6s ease-out;
+  }
+  
+  /* Popup background fade in */
+  #popup {
+    animation: backgroundFadeIn 0.4s ease-out;
+  }
+  
+  @keyframes backgroundFadeIn {
+    0% {
+      background: rgba(0,0,0,0);
+    }
+    100% {
+      background: rgba(0,0,0,0.7);
+    }
+  }
+  
+  /* Exit animations */
+  @keyframes popupFadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.7) translateY(-20px);
+    }
+  }
+  
+  @keyframes backgroundFadeOut {
+    0% {
+      background: rgba(0,0,0,0.7);
+    }
+    100% {
+      background: rgba(0,0,0,0);
+    }
+  }
+</style>
+
 <!-- Show and Close Script -->
 <script>
   window.addEventListener('load', function () {
-    document.getElementById('popup').style.display = 'flex';
+    // Show popup after 3 seconds delay
+    setTimeout(function() {
+      document.getElementById('popup').style.display = 'flex';
+    }, 3000);
   });
 
   function closePopup() {
-    document.getElementById('popup').style.display = 'none';
+    const popup = document.getElementById('popup');
+    const popupContent = document.getElementById('popup-content');
+    
+    // Add exit animation
+    popupContent.style.animation = 'popupFadeOut 0.3s ease-in forwards';
+    popup.style.animation = 'backgroundFadeOut 0.3s ease-in forwards';
+    
+    // Hide popup after animation completes
+    setTimeout(function() {
+      popup.style.display = 'none';
+      // Reset animations for next time
+      popupContent.style.animation = '';
+      popup.style.animation = '';
+    }, 300);
   }
 
   // Close popup when clicking outside the content
@@ -1114,6 +1225,13 @@
     const content = document.getElementById('popup-content');
     if (popup.style.display === 'flex' && !content.contains(e.target)) {
       closePopup();
+    }
+  });
+
+  // Marquee notification click handler
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#marquee-notification')) {
+      window.open('ganesh-chaturthi-offer.html', '_blank');
     }
   });
 </script>

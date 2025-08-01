@@ -913,6 +913,62 @@ header.main-header .header-sticky.active{
 	transform: scale(1.1);
 }
 
+/* Portfolio Hover Button Styles */
+.works-image {
+	position: relative;
+	overflow: hidden;
+}
+
+.portfolio-hover-btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	transition: all 0.3s ease;
+	z-index: 10;
+}
+
+.works-item:hover .portfolio-hover-btn {
+	opacity: 1;
+}
+
+.btn-view-project {
+	display: inline-block;
+	padding: 12px 24px;
+	background-color: var(--accent-color);
+	color: white;
+	text-decoration: none;
+	border-radius: 25px;
+	font-weight: 600;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(241, 85, 65, 0.3);
+}
+
+.btn-view-project:hover {
+	background-color: #d13d2a;
+	color: white;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(241, 85, 65, 0.4);
+	text-decoration: none;
+}
+
+/* Overlay effect on hover */
+.works-item:hover .works-image::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 5;
+	transition: all 0.3s ease;
+}
+
 .works-content{
 	padding: 0 20px;
 }
